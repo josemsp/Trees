@@ -1,17 +1,27 @@
 import "./index.css";
 
-export default function Tree() {
+export default function Tree () {
   return (
     <div className="tree">
       <p>root</p>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;ant</p>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;bear</p>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cat</p>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dog</p>
-      <p>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elephant
-      </p>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;frog</p>
+      <div className='tree'>
+        <p>ant</p>
+        <div className=''>
+          <p>bear</p>
+          <div className='tree'>
+            <p>cat</p>
+            <div className=''>
+              <p>dog</p>
+              <div className='tree'>
+                <p>
+                  elephant
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p>frog</p>
+      </div>
     </div>
   );
 }

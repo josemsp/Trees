@@ -4,3 +4,20 @@
   padding: 10px;
   font-family: monospace;
 }
+
+.tree {
+  padding-left: 40px;
+}
+
+.tree:nth-child(1) {
+  padding-left: 0;
+}
+
+.tree {
+  counter-reset: item;
+}
+
+p::before {
+  content: counters(item, ".") " "; 
+  counter-increment: item
+}
