@@ -1,14 +1,23 @@
-const TreeNode = ({ node, children }) => {
+const TreeNode = (props) => {
+  const { node, children, dots = '' } = props
+  const name = Array.from(node)
+  name.splice(1, 0, dots)
+
   return (
-    <>
-      {node}
+    <div className='tree-node'>
+      {`${name.join('')}`}
       {children &&
-        children.map((node) => (
-          <div key={node.node} className="indent">
-            <TreeNode {...node} />
-          </div>
-        ))}
-    </>
+        <div key={node.node} className="indent">
+          {children.map((node) => (
+            <TreeNode
+              {...node}
+              dots={`${dots}.`}
+              father={node}
+            />
+          ))}
+        </div>
+      }
+    </div>
   );
 };
 

@@ -5,19 +5,15 @@
   font-family: monospace;
 }
 
-.tree {
+.indent {
   padding-left: 40px;
 }
 
-.tree:nth-child(1) {
-  padding-left: 0;
+.indent {
+  counter-reset: root;
 }
 
-.tree {
-  counter-reset: item;
-}
-
-p::before {
-  content: counters(item, ".") " "; 
-  counter-increment: item
+.tree-node:before {
+  content: counters(root, ".") " ";
+  counter-increment: root;
 }
