@@ -13,7 +13,23 @@
   counter-reset: root;
 }
 
+.tree-node {
+  position: relative;
+}
+
 .tree-node:before {
   content: counters(root, ".") " ";
   counter-increment: root;
+}
+
+.options {
+  position: absolute;
+  top: 0px;
+  right: 1px;
+}
+
+.options span {
+  cursor: pointer;
+  padding: 0;
+  margin-left: 5px;
 }
