@@ -30,16 +30,28 @@ const TreeNode = (props) => {
 
       {father &&
         <div className="options">
-          <span role="img" aria-label="cross" onClick={handleDelete}>❌</span>
-          {!children && <span role="img" aria-label="cross" onClick={handleAddInput}>➕</span>}
+          <span
+            role="img"
+            aria-label="cross"
+            onClick={handleDelete}
+            title={`Delete ${name}`}
+          >❌</span>
+          {!children &&
+            <span
+              role="img"
+              aria-label="cross"
+              onClick={handleAddInput}
+              title={`Add Input to ${name}`}
+            >➕</span>}
         </div>
       }
 
       {children &&
         <div key={node.node} className="indent">
-          {children.map((_node) => (
+          {children.map((_node, i) => (
             <TreeNode
               {..._node}
+              key={`node-${i}`}
               dots={`${dots}.`}
               father={node}
               addChildren={addChildren}
@@ -49,7 +61,14 @@ const TreeNode = (props) => {
           ))}
         </div>
       }
-      {children && <input type="text" value={text} onChange={handleText} onKeyUp={handleKeyUp} />}
+      {children &&
+        <input
+          type="text"
+          placeholder={`Add to ${name}`}
+          value={text}
+          onChange={handleText}
+          onKeyUp={handleKeyUp}
+        />}
     </div>
   );
 };
